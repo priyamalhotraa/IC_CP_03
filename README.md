@@ -42,6 +42,6 @@ same value merge into one tile with double the value.
 
 3. Use W/A/S/D keys to move tiles.
 
-##Author
+## Author
 
 Priya Malhotra
