@@ -16,7 +16,7 @@ void add(){
 }
 
 void show(){
-    cout<<"W=Up  A=Left  S=Down  D=Left"<<endl;
+    cout<<"W=Up  A=Left  S=Down  D=Right"<<endl;
     for(int i=0;i<4;i++){
         for(int j=0;j<4;j++)
         cout<<(b[i][j] ? to_string(b[i][j]) : ".")<<"\t";
@@ -78,20 +78,20 @@ void rotate(){
 bool move(char c){
     bool m=false;
 
-    if(c=='a'){
+    if(c=='a'|| c=='A'){
         m=moveleft();
     }
-    if(c=='w'){
+    if(c=='w'||c=='W'){
         rotate(); rotate(); rotate();
         m=moveleft();
         rotate();
     }
-    if(c=='d'){
+    if(c=='d'||c=='D'){
         rotate(); rotate();
         m=moveleft();
         rotate(); rotate();
     }
-    if(c=='s'){
+    if(c=='s'||c=='S'){
         rotate();
         m=moveleft();
         rotate(); rotate(); rotate();
@@ -102,13 +102,13 @@ bool move(char c){
 bool gameover(){
     for(int i=0;i<4;i++){
         for(int j=0;j<4;j++){
-            if(b[i]==0){
+            if(b[i][j]==0){
                 return false;
             }
         }
     }
     for(int i=0;i<4;i++){
-        for(int j=0;i<3;j++){
+        for(int j=0;j<3;j++){
             if(b[i][j]==b[i][j+1] || b[j][i]==b[j+1][i]){
                 return false;
             }
